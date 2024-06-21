@@ -1,0 +1,116 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+#wrapper{
+    height:100vh; /*same height as browser*/
+    overflow-x:hidden; /*no scrolling*/
+    overflow-y:auto; /*allows scrolling in y axis*/
+    perspective:10px; /*for 3d effect*/
+}
+
+.container{
+    position:relative;   
+    display:flex;  /*to display adventure in center, 
+    by default elements are horizontal  thats is why images were
+    half half displayed*/
+    justify-content: center;
+    align-items: center;
+    height:100%;
+    transform-style: preserve-3d;   
+    z-index:-1;  
+}
+
+.mountain{
+    transform:translateZ(-60px) scale(7.5);  /*translate makes image appear farther away 
+    and scale is used to make the image larger but at the same distance*/
+}
+.man{
+    transform:translateZ(-30px) scale(4);
+}
+.mountain, .man{
+    position:absolute;    /*to make images overlap*/
+    height:100%;
+    width:100%; 
+    z-index:-1;     /*how to handle layering 
+    without this the text was hidden behind images
+    
+    -1 because it will be displayed else in +ve value it remains hidden */
+    object-fit:cover;   /*how an image can be resized to fit in a container*/
+}
+h1{
+    position:absolute;
+    top: 4rem;
+    left:21%;
+    font-size:8rem;
+    letter-spacing:4px;
+    color:white;
+    text-shadow: 0px 0px 15px rgba(0,0,0,0.8);
+    font-family:sans-serif;
+}
+
+section{
+    background-color: rgb(45, 45, 45);
+    color:white;
+    padding:5rem 1rem;
+}
+
+.secHeading{
+    font-size: 5rem;
+    padding: 0 5rem;
+}
+
+.text{
+    font-size:1.5rem;
+    padding: 0 5rem;
+    margin: 7rem 0; 
+}
+
+.bg{
+    position:relative;
+    width:100%;
+    /* max-width: 300px; */
+    height:500px; 
+    background-size:cover;
+    background-attachment: fixed;
+    background-position: center;;
+}
+
+.desc{
+    position: absolute;
+    background-color: white;
+    padding: 0.5rem 2.5rem;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    color:black;
+    font-size:3.5rem;
+    font-weight:600;
+}
+
+.bg1{
+    background-image: url(biking.jpeg);
+}
+.bg2{
+    background-image: url(paragli.jpg);
+}
+.bg3{
+    background-image: url(surfinggg.jpg);
+}
+
+/*  IMG Tag         VS      BACKGROUND-IMAGE Tag
+->  screen readers       no annoucement
+anounce presence
+
+->          SAME PERFORMANCE
+
+-> only concerns       concerns about designing
+with content
+
+-> HTML tag            CSS tag
+
+-> SEO only searches     no contribution to 
+for alt attribute        SEO
+*/
+
